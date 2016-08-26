@@ -32,7 +32,21 @@
       Me gusta el post. No sé mucho acerca de programación pero me encantaría saber más.
       <span class="author">Juan Gómez</span>
     </li>
+    <% if @comments %>
+      <% @comments.each do |comment| %>
+        <li>
+          <%= comment.body %>
+          <span class="author"><%= comment.author %></span>
+        </li>
+      <% end %>
+    <% end %>
   </ul>
+  <p id="alert"></p>
 
   <button id="new_comment_button">Nuevo Comentario</button>
+  <form action="/new_comment" method="POST">
+    <fieldset id="add_field">
+    </fieldset>
+  </form>
 </div>
+<br>
